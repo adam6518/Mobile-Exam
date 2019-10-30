@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Container, Header, Content, Body, Card, CardItem, Input, Form, Item, Left, Button, Icon, List, ListItem, Right, Title, Badge } from 'native-base'
 import firebase from 'firebase'
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler'
+import { setProvidesAudioData } from 'expo/build/AR'
 
 const TodoListScreen = props => {
     const dispatch = useDispatch()
@@ -33,7 +34,7 @@ const TodoListScreen = props => {
             id: newPostKey
         })
         .then(result => {
-            // console.log(result)
+            console.log(result)
         })
         .catch(err => {
             console.log(err)
@@ -49,6 +50,8 @@ const TodoListScreen = props => {
             })
         })
     }
+
+    
 
 
     return (
@@ -88,7 +91,7 @@ const TodoListScreen = props => {
                         </Body>
                         <Right style={{ width: '100%'}}>
                             <TouchableOpacity>
-                                <Text style={{ color: 'lightblue'}}>Open</Text>
+                                <Text onPress={() => props.navigation.navigate('TodoDetailScreen', {todoData})} style={{ color: 'lightblue'}}>Open</Text>
                             </TouchableOpacity>
                         </Right>
                     </ListItem>

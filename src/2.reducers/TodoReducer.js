@@ -9,6 +9,8 @@ export default (state = INITIAL_STATE, action) => {
             return {...state, todoInput : action.payload}
         case 'FILL_TODO':
             return{...state, todoData: action.payload}
+        case 'DELETE_TODO':
+            return INITIAL_STATE
         default:
             return state
     }
